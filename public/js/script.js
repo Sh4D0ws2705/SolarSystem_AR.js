@@ -1,119 +1,131 @@
-// Gesture logic (zoom + xoay)
-
-AFRAME.registerComponent("gesture-handler", {
-  init: function () {
-    const el = this.el;
-    let lastDist = null;
-    let isDragging = false;
-    let lastTouchX = 0;
-    let lastTouchY = 0;
-
-    const scaleLimit = { min: 0.3, max: 3 };
-
-    el.sceneEl.canvas.addEventListener("touchstart", function (e) {
-      if (e.touches.length === 2) {
-        // Zoom
-        const dx = e.touches[0].clientX - e.touches[1].clientX;
-        const dy = e.touches[0].clientY - e.touches[1].clientY;
-        lastDist = Math.sqrt(dx * dx + dy * dy);
-      } else if (e.touches.length === 1) {
-        // Xoay
-        isDragging = true;
-        lastTouchX = e.touches[0].clientX;
-        lastTouchY = e.touches[0].clientY;
-      }
-    });
-
-    el.sceneEl.canvas.addEventListener("touchmove", function (e) {
-      if (e.touches.length === 2) {
-        // Zoom
-        const dx = e.touches[0].clientX - e.touches[1].clientX;
-        const dy = e.touches[0].clientY - e.touches[1].clientY;
-        const newDist = Math.sqrt(dx * dx + dy * dy);
-
-        if (lastDist) {
-          let scale = el.getAttribute("scale");
-          const zoom = newDist / lastDist;
-          scale.x = Math.min(
-            scaleLimit.max,
-            Math.max(scaleLimit.min, scale.x * zoom)
-          );
-          scale.y = Math.min(
-            scaleLimit.max,
-            Math.max(scaleLimit.min, scale.y * zoom)
-          );
-          scale.z = Math.min(
-            scaleLimit.max,
-            Math.max(scaleLimit.min, scale.z * zoom)
-          );
-          el.setAttribute("scale", scale);
-        }
-
-        lastDist = newDist;
-      } else if (e.touches.length === 1 && isDragging) {
-        // Xoay
-        const currentX = e.touches[0].clientX;
-        const currentY = e.touches[0].clientY;
-        const deltaX = currentX - lastTouchX;
-        const deltaY = currentY - lastTouchY;
-
-        lastTouchX = currentX;
-        lastTouchY = currentY;
-
-        let rotation = el.getAttribute("rotation");
-        rotation.y += deltaX * 0.5; // Xoay trái-phải
-        rotation.x -= deltaY * 0.5; // Xoay lên-xuống (trừ để xoay đúng hướng)
-        // rotation.x = Math.max(-90, Math.min(90, rotation.x));
-        el.setAttribute("rotation", rotation);
-      }
-    });
-
-    el.sceneEl.canvas.addEventListener("touchend", function (e) {
-      if (e.touches.length < 2) {
-        lastDist = null;
-      }
-      if (e.touches.length === 0) {
-        isDragging = false;
-      }
-    });
-  },
-});
-
-
-
 // Gắn component gesture vào hệ mặt trời
 
+// document.addEventListener("DOMContentLoaded", () => {
+//   document.querySelector("#solar-system").setAttribute("gesture-handler", "");
+
+//   const earthBtn = document.querySelector("#earthButton");
+//   const marsBtn = document.querySelector("#marsButton");
+//   const venusBtn = document.querySelector("#venusButton");
+//   const mercuryBtn = document.querySelector("#mercuryButton");
+//   const sunBtn = document.querySelector("#sunButton");
+
+//   earthBtn.addEventListener("click", () => {
+//     document.getElementById("modal-earth").style.display = "block";
+//   });
+
+//   sunBtn.addEventListener("click", () => {
+//     document.getElementById("modal-sun").style.display = "block";
+//   });
+
+//   marsBtn.addEventListener("click", () => {
+//     document.getElementById("modal-mars").style.display = "block";
+//   });
+
+//   venusBtn.addEventListener("click", () => {
+//     document.getElementById("modal-venus").style.display = "block";
+//   });
+
+//   mercuryBtn.addEventListener("click", () => {
+//     document.getElementById("modal-mercury").style.display = "block";
+//   });
+// });
+
+// // Hàm đóng modal
+// function closeModal(id) {
+//   document.getElementById(id).style.display = "none";
+// }
+
+const planetData = {
+  sun: { model: "#model-sun", scale: "0.05 0.05 0.05" },
+  mercury: { model: "#model-mercury", scale: "0.04 0.04 0.04" },
+  venus: { model: "#model-venus", scale: "0.002 0.002 0.002" },
+  earth: { model: "#model-earth", scale: "0.0002 0.0002 0.0002" },
+  mars: { model: "#model-mars", scale: "0.4 0.4 0.4" },
+};
+
+let currentPlanetId = null; // Biến toàn cục lưu hành tinh đang zoom
+
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector("#solar-system").setAttribute("gesture-handler", "");
-
-  const earthBtn = document.querySelector("#earthButton");
-  const marsBtn = document.querySelector("#marsButton");
-  const venusBtn = document.querySelector("#venusButton");
-  const mercuryBtn = document.querySelector("#mercuryButton");
-  const sunBtn = document.querySelector("#sunButton");
-
-  earthBtn.addEventListener("click", () => {
-    document.getElementById("modal-earth").style.display = "block";
+  // Gán sự kiện click cho các nút button hành tinh
+  ["sun", "mercury", "venus", "earth", "mars"].forEach((planet) => {
+    const btn = document.querySelector(`#${planet}Button`);
+    if (btn) {
+      btn.addEventListener("click", () => {
+        showZoomedPlanet(planet);
+      });
+    }
   });
 
-  sunBtn.addEventListener("click", () => {
-    document.getElementById("modal-sun").style.display = "block";
-  });
+  // Gán sự kiện click cho nút đóng zoom
+  const closeZoomBtn = document.querySelector("#closeZoomBtn");
+  if (closeZoomBtn) {
+    closeZoomBtn.addEventListener("click", () => {
+      closeZoom();
+    });
+  }
 
-  marsBtn.addEventListener("click", () => {
-    document.getElementById("modal-mars").style.display = "block";
-  });
+  // Gán sự kiện cho nút Info chỉ 1 lần
+  const infoBtn = document.querySelector("#infoButton");
+  if (infoBtn) {
+    infoBtn.addEventListener("click", () => {
+      if (currentPlanetId) {
+        openModal(`modal-${currentPlanetId}`);
+      }
+    });
+  }
 
-  venusBtn.addEventListener("click", () => {
-    document.getElementById("modal-venus").style.display = "block";
-  });
-
-  mercuryBtn.addEventListener("click", () => {
-    document.getElementById("modal-mercury").style.display = "block";
-  });
+  // Bật gesture-handler cho hệ mặt trời khi load
+  const solarSystem = document.querySelector("#solar-system");
+  if (solarSystem) {
+    solarSystem.setAttribute("gesture-handler", "");
+  }
 });
 
-// Hàm đóng modal
+function showZoomedPlanet(planetId) {
+  const zoomed = document.querySelector("#zoomedPlanet");
+  const model = document.querySelector("#zoomedModel");
+  const solarSystem = document.querySelector("#solar-system");
+  const data = planetData[planetId];
+
+  if (!zoomed || !model || !solarSystem || !data) return;
+
+  // Lưu planetId hiện tại
+  currentPlanetId = planetId;
+
+  // Gán model và scale cho zoomedModel
+  model.setAttribute("gltf-model", data.model);
+  model.setAttribute("scale", data.scale);
+
+  // Hiện zoomed, ẩn hệ mặt trời
+  zoomed.setAttribute("visible", "true");
+  solarSystem.setAttribute("visible", "false");
+
+  // Bật gesture cho zoomedModel
+  model.setAttribute("gesture-handler", "");
+}
+
+function closeZoom() {
+  const zoomed = document.querySelector("#zoomedPlanet");
+  const solarSystem = document.querySelector("#solar-system");
+
+  if (zoomed && solarSystem) {
+    zoomed.setAttribute("visible", "false");
+    solarSystem.setAttribute("visible", "true");
+  }
+
+  currentPlanetId = null; // Xoá hành tinh hiện tại khi đóng
+}
+
+function openModal(id) {
+  const modal = document.getElementById(id);
+  if (modal) {
+    modal.style.display = "block";
+  }
+}
+
 function closeModal(id) {
-  document.getElementById(id).style.display = "none";
+  const modal = document.getElementById(id);
+  if (modal) {
+    modal.style.display = "none";
+  }
 }
