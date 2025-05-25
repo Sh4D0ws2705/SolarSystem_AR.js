@@ -104,6 +104,7 @@
           position="0 0 0"
           rotation="90 0 0"
           scale="1 1 1"
+          gesture-handler
         >
           <!-- Mặt Trời -->
           <a-gltf-model
@@ -118,7 +119,6 @@
           <a-sphere
             position="0 0.5 0"
             radius="0.4"
-            color="yellow"
             opacity="0.5"
             class="clickable"
             id="sunButton"
@@ -142,7 +142,6 @@
             <a-sphere
               position="0.6 0 0"
               radius="0.25"
-              color="yellow"
               opacity="0.5"
               class="clickable"
               id="mercuryButton"
@@ -159,7 +158,7 @@
             <a-gltf-model
               src="#model-venus"
               position="1.2 0 0"
-              scale="0.002 0.002 0.002"
+              scale="0.0003 0.0003 0.0003"
               class="clickable"
             >
             </a-gltf-model>
@@ -168,7 +167,6 @@
             <a-sphere
               position="1.2 0 0"
               radius="0.25"
-              color="yellow"
               opacity="0.5"
               class="clickable"
               id="venusButton"
@@ -177,7 +175,10 @@
           </a-entity>
 
           <!-- Trái Đất và Mặt Trăng -->
-          <a-entity position="0 0.5 0">
+          <a-entity
+            position="0 0.5 0"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 36500"
+          >
             <!-- Trái Đất -->
             <a-gltf-model
               src="#model-earth"
@@ -220,10 +221,64 @@
             <a-sphere
               position="2.4 0.35 0"
               radius="0.35"
-              color="yellow"
               opacity="0.5"
               class="clickable"
               id="marsButton"
+            >
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+        <!-- ZOOMED -->
+        <a-entity
+          class="zoomed_planet"
+          id="zoomedPlanet"
+          visible="false"
+          position="0 -1.5 -1.5"
+          rotation="-90 0 0"
+        >
+          <!-- vị trí model zoom -->
+          <a-gltf-model
+            id="zoomedModel"
+            position="0 -1.5 0"
+            gesture-handler
+          ></a-gltf-model>
+
+          <!-- Nút thông tin -->
+          <a-entity position="1 -0.6 0.5" class="clickable">
+            <a-plane width="0.4" height="0.2" color="#3498db"></a-plane>
+            <a-text
+              value="Thông tin"
+              align="center"
+              color="#fff"
+              position="0 0 0.01"
+              width="1.2"
+            ></a-text>
+            <a-sphere
+              position="0 0 0.01"
+              radius="0.4"
+              opacity="0.5"
+              class="clickable"
+              id="infoButton"
+            >
+            </a-sphere>
+          </a-entity>
+
+          <!-- Nút đóng -->
+          <a-entity position="1.5 -0.6 0.5" class="clickable">
+            <a-plane width="0.4" height="0.2" color="#e74c3c"></a-plane>
+            <a-text
+              value="Đóng"
+              align="center"
+              color="#fff"
+              position="0 0 0.03"
+              width="1.2"
+            ></a-text>
+            <a-sphere
+              position="0 0 0.03"
+              radius="0.4"
+              opacity="0.5"
+              class="clickable"
+              id="closeZoomBtn"
             >
             </a-sphere>
           </a-entity>
@@ -232,5 +287,6 @@
     </a-scene>
 
     <script src="./js/script.js"></script>
+    <script src="./js/gestureLogic.js"></script>
   </body>
 </html>
