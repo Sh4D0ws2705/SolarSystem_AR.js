@@ -36,11 +36,11 @@
 // }
 
 const planetData = {
-  sun: { model: "#model-sun", scale: "0.05 0.05 0.05" },
-  mercury: { model: "#model-mercury", scale: "0.04 0.04 0.04" },
-  venus: { model: "#model-venus", scale: "0.002 0.002 0.002" },
+  sun: { model: "#model-sun", scale: "0.07 0.07 0.07" },
+  mercury: { model: "#model-mercury", scale: "0.6 0.6 0.6" },
+  venus: { model: "#model-venus", scale: "0.001 0.001 0.001" },
   earth: { model: "#model-earth", scale: "0.0002 0.0002 0.0002" },
-  mars: { model: "#model-mars", scale: "0.4 0.4 0.4" },
+  mars: { model: "#model-mars", scale: "0.7 0.7 0.7" },
 };
 
 let currentPlanetId = null; // Biến toàn cục lưu hành tinh đang zoom
