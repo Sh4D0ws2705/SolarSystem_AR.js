@@ -26,9 +26,22 @@
   cursor: pointer;
 }
 
-.zoomed_planet {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+.planet-details {
+  margin-top: 15px;
+  border-top: 1px dashed #444;
+  padding-top: 10px;
+}
+
+.planet-details h4 {
+  color: #f7d794; /* Màu tiêu đề vàng */
+  margin-bottom: 5px;
+}
+
+.planet-details ul {
+  padding-left: 20px;
+}
+
+.planet-details li {
+  margin-bottom: 8px;
+  line-height: 1.4;
 }
