@@ -137,7 +137,7 @@
       </div>
     </div>
 
-    <a-scene embedded arjs="sourceType: webcam;" vr-mode-ui="enabled: false">
+    <a-scene embedded arjs="sourceType: webcam; patternRatio:0.80;" vr-mode-ui="enabled: false">
       <!-- Assets -->
       <a-assets>
         <a-asset-item id="model-sun" src="./model/sun.glb"></a-asset-item>
@@ -161,7 +161,7 @@
         ></a-cursor>
       </a-entity>
 
-      <a-marker preset="hiro">
+      <a-marker type="pattern" url="./marker/ARSolar-pattern-frame.patt">
         <!-- Nhóm hệ mặt trời có thể xoay và zoom -->
         <a-entity
           id="solar-system"
@@ -313,7 +313,7 @@
           <a-entity position="1 -0.3 0.5" class="clickable">
             <a-plane width="0.4" height="0.2" color="#3498db"></a-plane>
             <a-text
-              value="Thông tin"
+              value="Info"
               align="center"
               color="#fff"
               position="0 0 0.01"
@@ -322,8 +322,8 @@
             <a-sphere
               position="0 0 0.01"
               radius="0.4"
-              opacity="0.5"
               class="clickable"
+              opacity="0.001"
               id="infoButton"
             >
             </a-sphere>
@@ -333,7 +333,7 @@
           <a-entity position="1 -0.8 0.5" class="clickable">
             <a-plane width="0.4" height="0.2" color="#e74c3c"></a-plane>
             <a-text
-              value="Đóng"
+              value="Close"
               align="center"
               color="#fff"
               position="0 0 0.03"
@@ -342,7 +342,7 @@
             <a-sphere
               position="0 0 0.03"
               radius="0.4"
-              opacity="0.5"
+              opacity="0.001"
               class="clickable"
               id="closeZoomBtn"
             >
