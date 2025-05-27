@@ -19,6 +19,13 @@
         <div class="modal-content">
           <span class="close" onclick="closeModal('modal-sun')">&times;</span>
           <h3>☀ Mặt Trời - Ngôi sao trung tâm</h3>
+
+          <div class="modal-image">
+            <img src="./img/sun_plasma.jpg" 
+                 alt="Vụ phun trào plasma">
+            <p class="image-caption"> 🔥 <strong>Vụ phun trào plasma</strong> cao gấp 10 lần Trái Đất<br></p>
+          </div>
+
           <div class="planet-details">
             <h4>📊 Đặc điểm khoa học:</h4>
             <ul>
@@ -45,6 +52,13 @@
             >&times;</span
           >
           <h3>☿ Sao Thủy - Hành tinh số 1</h3>
+
+          <div class="modal-image">
+            <img src="./img/ho_trung_bi_an.jpg" 
+                 alt="hồ Trũng bí ẩn">
+            <p class="image-caption"> 🕳️ <strong>Hố trũng bí ẩn</strong> ở cực Bắc - Nơi băng nước tồn tại trong bóng tối vĩnh cửu</p>
+          </div>
+
             <div class="planet-details">
               <h4>📊 Đặc điểm khoa học:</h4>
               <ul>
@@ -69,6 +83,13 @@
         <div class="modal-content">
           <span class="close" onclick="closeModal('modal-venus')">&times;</span>
           <h3>♀ Sao Kim - Hành tinh số 2</h3>
+
+          <div class="modal-image">
+            <img src="./img/Gio_Xoay_Sao_Kim.jpg" 
+                 alt="Xoáy Cực" >
+            <p class="image-caption">🌪️ Những trận gió xoáy kỳ lạ trên bề mặt sao Kim</p>
+          </div>
+
           <div class="planet-details">
             <h4>📊 Đặc điểm khoa học:</h4>
             <ul>
@@ -93,6 +114,15 @@
         <div class="modal-content">
           <span class="close" onclick="closeModal('modal-earth')">&times;</span>
           <h3>🌍 Trái Đất - Hành tinh số 3</h3>
+
+          
+          <div class="modal-image">
+            <img src="./img/blueMarble.jpg" 
+                 alt="Viên ngọc xanh" >
+            <p class="image-caption">🌍<strong>"Viên ngọc xanh"</strong> chụp từ khoảng cách 1,6 triệu km<br>
+              Vệ tinh DSCOVR ghi lại hiện tượng "Mặt Trăng đi ngang Trái Đất" năm 2016</p>
+          </div>
+
           <div class="planet-details">
             <h4>📊 Đặc điểm khoa học:</h4>
             <ul>
@@ -112,11 +142,56 @@
         </div>
       </div>
 
+      <!-- Mặt trăng -->
+      <div id="modal-moon" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('modal-moon')">&times;</span>
+          <h3>🌑 Mặt Trăng - Vệ tinh tự nhiên của Trái Đất</h3>
+      
+          <div class="modal-image">
+            <img src="./img/Tycho_LRO.png" 
+                 alt="Hố Tycho trên Mặt Trăng">
+            <p class="image-caption"> 
+              🌠 <strong>Hố Tycho</strong> - "Vết sẹo" trẻ nhất (108 triệu năm tuổi)<br>
+              Đường kính 86km, tia bắn tỏa dài 1.500km
+            </p>
+          </div>
+      
+          <div class="planet-details">
+            <h4>📊 Đặc điểm khoa học:</h4>
+            <ul>
+              <li><strong>Khoảng cách từ Trái Đất:</strong> 384.400 km (trung bình)</li>
+              <li><strong>Đường kính:</strong> 3.474 km (bằng 27% Trái Đất)</li>
+              <li><strong>Nhiệt độ bề mặt:</strong> -173°C đến 127°C</li>
+              <li><strong>Cấu tạo:</strong> Lớp vỏ bazan, lớp phủ silicat, lõi sắt nhỏ</li>
+              <li><strong>Chu kỳ quỹ đạo:</strong> 27.3 ngày (đồng bộ với chu kỳ tự quay)</li>
+            </ul>
+            
+            <h4>🔍 Fun Facts:</h4>
+            <ul>
+              <li>Mỗi năm Mặt Trăng "trôi xa" Trái Đất <strong>3.8cm</strong> do thủy triều</li>
+              <li>Bụi Mặt Trăng có mùi như <strong>thuốc súng cháy</strong> (theo phi hành gia Apollo)</li>
+              <li>Địa điểm lạnh nhất Hệ Mặt Trời (-247°C) nằm trong <strong>hố Shackleton</strong> ở cực Nam</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <!-- Sao Hỏa -->
       <div id="modal-mars" class="modal">
         <div class="modal-content">
           <span class="close" onclick="closeModal('modal-mars')">&times;</span>
           <h3>♂ Sao Hỏa - Hành tinh số 4</h3>
+    
+          <div class="modal-image">
+            <img src="./img/hem-nui-sao-hoa.jpg" 
+                 alt="vành đai Sao Thổ bị che khuất ánh sáng Mặt Trời">
+            <p class="image-caption"><strong>Valles Marineris</strong> - Hẻm núi dài 4.000km, sâu 7km (gấp 10 lần Grand Canyon) 
+              <br>
+              Ảnh tổng hợp từ tàu Mars Reconnaissance Orbiter
+            </p>
+          </div>
+
           <div class="planet-details">
             <h4>📊 Đặc điểm khoa học:</h4>
             <ul>
@@ -135,20 +210,119 @@
           </div>
         </div>
       </div>
+  
+      <!-- Sao Mộc -->
+      <div id="modal-jupiter" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('modal-jupiter')">&times;</span>
+          <h3>♃ Sao Mộc - Hành tinh khí khổng lồ</h3>
+
+          <div class="modal-image">
+            <img src="./img/Great_Red_Spot.jpg" 
+                 alt="Cơn bão Great Red Spot trên Sao Mộc" 
+                 title="Bão lớn gấp 2-3 lần Trái Đất, tồn tại 400 năm">
+            <p class="image-caption">Cơn bão Great Red Spot - Chụp bởi tàu vũ trụ Juno (NASA)</p>
+          </div>
+          
+          <div class="planet-details">
+            <h4>📊 Đặc điểm khoa học:</h4>
+            <ul>
+              <li><strong>Loại:</strong> Hành tinh khí (không có bề mặt rắn)</li>
+              <li><strong>Đường kính:</strong> 142.984 km (gấp 11 lần Trái Đất)</li>
+              <li><strong>Khối lượng:</strong> Gấp 318 lần Trái Đất</li>
+              <li><strong>Khí quyển:</strong> 90% Hydro, 10% Heli, vết đỏ lớn (bão khổng lồ)</li>
+              <li><strong>Vệ tinh:</strong> 92 mặt trăng (lớn nhất: Ganymede, Callisto, Io, Europa)</li>
+            </ul>
+            
+            <h4>🔍 Fun Facts:</h4>
+            <ul>
+              <li>⚡ Cơn bão <strong>Great Red Spot</strong> tồn tại ít nhất <strong>400 năm</strong>, rộng gấp 2-3 lần Trái Đất!</li>
+              <li>🌌 Từ trường mạnh gấp <strong>20.000 lần</strong> Trái Đất, tạo ra cực quang rực rỡ</li>
+              <li>💫 Nếu nặng hơn 80 lần, Sao Mộc có thể trở thành <strong>một ngôi sao</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sao Thổ -->
+      <div id="modal-saturn" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('modal-saturn')">&times;</span>
+          <h3>♄ Sao Thổ - Chúa tể của những chiếc nhẫn</h3>
+          
+          <div class="modal-image">
+            <img src="./img/Backlit_Saturn.jpg" 
+                 alt="vành đai Sao Thổ bị che khuất ánh sáng Mặt Trời">
+            <p class="image-caption">Tàu thăm dò Cassini chụp được phần vành đai Sao Thổ bị che khuất ánh sáng Mặt Trời (9 tháng 5 năm 2007).</p>
+          </div>
+          
+          <div class="planet-details">
+            <h4>📊 Đặc điểm khoa học:</h4>
+            <ul>
+              <li><strong>Loại:</strong> Hành tinh khí (lõi đá + lớp khí dày)</li>
+              <li><strong>Đường kính:</strong> 120.536 km (gấp 9.5 lần Trái Đất)</li>
+              <li><strong>Mật độ:</strong> Nhẹ hơn nước (0.687 g/cm³) - có thể nổi trên nước!</li>
+              <li><strong>Vành đai:</strong> 7 vòng chính, cấu tạo từ băng + đá (dày ~10m)</li>
+              <li><strong>Vệ tinh:</strong> 83 mặt trăng (Titan lớn hơn cả Sao Thủy)</li>
+            </ul>
+            
+            <h4>🔍 Fun Facts:</h4>
+            <ul>
+              <li>💍 Vành đai trải rộng <strong>282.000 km</strong> nhưng chỉ dày bằng <strong>tòa nhà 3 tầng</strong></li>
+              <li>🌫️ Titan (vệ tinh) có <strong>sông hồ methane lỏng</strong> và khí quyển dày gấp 1.5 lần Trái Đất</li>
+              <li>🌀 Cực Bắc có <strong>hình lục giác kỳ lạ</strong> - cơn bão xoáy 6 cạnh rộng 30.000 km</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sao Thiên Vương -->
+      <div id="modal-uranus" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('modal-uranus')">&times;</span>
+          <h3>♅ Sao Thiên Vương - Hành tinh nghiêng độc nhất vô nhị</h3>
+
+          <div class="modal-image">
+            <img src="./img/Uranus,_Earth_size_comparison_2.jpg" 
+                 alt="So sánh kích thức của sao thiên vương với trái đất">
+            <p class="image-caption">So sánh kích cỡ giữa Trái Đất và Sao Thiên Vương.</p>
+          </div>
+          
+          <div class="planet-details">
+            <h4>📊 Đặc điểm khoa học:</h4>
+            <ul>
+              <li><strong>Loại:</strong> Hành tinh băng khổng lồ (lõi đá + lớp phủ băng)</li>
+              <li><strong>Đường kính:</strong> 50.724 km (gấp 4 lần Trái Đất)</li>
+              <li><strong>Khí quyển:</strong> 83% Hydro, 15% Heli, 2% Methane (tạo màu xanh lam)</li>
+              <li><strong>Trục nghiêng 97.77° khiến cực Bắc/Nam hướng thẳng về Mặt Trời trong 21 năm liên tục</li>
+              <li><strong>Vệ tinh:</strong> 27 mặt trăng (Titania, Oberon lớn nhất)</li>
+              <li><strong>Vành đai:</strong> 13 vòng mờ chủ yếu bằng bụi đá</li>
+            </ul>
+            
+            <h4>🔍 Fun Facts:</h4>
+            <ul>
+              <li>🔄 Một năm bằng <strong>84 năm Trái Đất</strong>, nhưng mùa đông/mùa hè kéo dài <strong>21 năm</strong> do nghiêng cực đại!</li>
+              <li>🌌 Phát hiện năm <strong>1781</strong> bằng kính thiên văn - hành tinh đầu tiên được tìm thấy thời hiện đại</li>
+              <li>❄️ Lạnh nhất hệ Mặt Trời (<strong>-224°C</strong>), dù không xa Mặt Trời nhất</li>
+              <li>💨 Gió thổi <strong>900 km/h</strong> - tốc độ siêu âm (gấp 2,5 lần siêu bão Trái Đất)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
     <a-scene embedded arjs="sourceType: webcam; patternRatio:0.80;" vr-mode-ui="enabled: false">
       <!-- Assets -->
       <a-assets>
         <a-asset-item id="model-sun" src="./model/sun.glb"></a-asset-item>
-        <a-asset-item
-          id="model-mercury"
-          src="./model/mercury.glb"
-        ></a-asset-item>
+        <a-asset-item id="model-mercury"src="./model/mercury.glb"></a-asset-item>
         <a-asset-item id="model-venus" src="./model/venus.glb"></a-asset-item>
         <a-asset-item id="model-earth" src="./model/earth.glb"></a-asset-item>
         <a-asset-item id="model-moon" src="./model/moon.glb"></a-asset-item>
         <a-asset-item id="model-mars" src="./model/mars.glb"></a-asset-item>
+        <a-asset-item id="model-jupiter" src="./model/jupiter.glb"></a-asset-item>
+        <a-asset-item id="model-saturn" src="./model/saturn.glb"></a-asset-item>
+        <a-asset-item id="model-uranus" src="./model/uranus.glb"></a-asset-item>
       </a-assets>
 
       <!-- Camera để tương tác -->
@@ -166,8 +340,8 @@
         <a-entity
           id="solar-system"
           position="0 0 0"
-          rotation="90 0 0"
-          scale="1 1 1"
+          rotation="0 0 0"
+          scale="0.5 0.5 0.5"
           gesture-handler
         >
           <!-- Mặt Trời -->
@@ -200,6 +374,7 @@
               position="0.6 0 0"
               scale="0.2 0.2 0.2"
               class="clickable"
+              animation="property: rotation; to: 0 360 0; loop: true; dur: 25000; easing: linear"
             >
             </a-gltf-model>
             <!-- Vùng nhấn ẩn để mở modal -->
@@ -224,6 +399,7 @@
               position="1.2 0 0"
               scale="0.0003 0.0003 0.0003"
               class="clickable"
+              animation="property: rotation; to: 0 -360 0; loop: true; dur: 60000; easing: linear"
             >
             </a-gltf-model>
 
@@ -241,7 +417,7 @@
           <!-- Trái Đất và Mặt Trăng -->
           <a-entity
             position="0 0.5 0"
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 36500"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 36500; easing: linear"
           >
             <!-- Trái Đất -->
             <a-gltf-model
@@ -250,21 +426,24 @@
               scale="0.00007 0.00007 0.00007"
               class="clickable"
               id="earthButton"
+              animation="property: rotation; to: 0 360 0; loop: true; dur: 4000; easing: linear"
             >
             </a-gltf-model>
 
-            <!-- Mặt Trăng quay quanh Trái Đất -->
+            <!-- Mặt Trăng-->
             <a-entity
               position="1.8 0 0"
-              animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"
             >
               <a-gltf-model
                 src="#model-moon"
                 position="0.5 0 0"
                 scale="0.02 0.02 0.02"
                 rotation="0 90 0"
+                id="moonButton"
+                class="clickable"
               >
               </a-gltf-model>
+              </a-sphere>
             </a-entity>
           </a-entity>
 
@@ -275,15 +454,16 @@
           >
             <a-gltf-model
               src="#model-mars"
-              position="2.2 0 0"
+              position="2.4 0 0"
               scale="0.25 0.25 0.25"
               class="clickable"
+              animation="property: rotation; to: 0 360 0; loop: true; dur: 4100; easing: linear"
             >
             </a-gltf-model>
 
             <!-- Vùng nhấn ẩn để mở modal -->
             <a-sphere
-              position="2.2 0.35 0"
+              position="2.4 0.35 0"
               radius="0.35"
               class="clickable"
               opacity="0.001"
@@ -291,7 +471,84 @@
             >
             </a-sphere>
           </a-entity>
+
+          <!-- sao Mộc -->
+          <a-entity
+            position="0 0.5 0"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 433000; easing: linear;"
+          >
+            <a-gltf-model
+              src="#model-jupiter"
+              position="2.7 0 0"
+              scale="0.002 0.002 0.002"
+              class="clickable"
+              animation="property: rotation; to: 0 360 0; loop: true; dur: 2482; easing: linear"
+            >
+            </a-gltf-model>
+
+            <!-- Vùng nhấn ẩn để mở modal -->
+            <a-sphere
+              position="2.7 0 0"
+              radius="0.35"
+              class="clickable"
+              opacity="0.001"
+              id="jupiterButton"
+            >
+            </a-sphere>
+          </a-entity>
+
+         <!-- sao Thổ -->
+          <a-entity
+          position="0 0.5 0"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 930000; easing: linear"
+          >
+          <a-gltf-model
+            src="#model-saturn"
+            position="3.6 0 0"
+            scale="0.02 0.02 0.02"
+            class="clickable"
+            rotation="26.7 0 0"
+          >
+          </a-gltf-model>
+
+          <!-- Vùng nhấn ẩn để mở modal -->
+          <a-sphere
+            position="3.6 0 0"
+            radius="0.4"
+            class="clickable"
+            opacity="0.001"
+            id="saturnButton"
+          >
+          </a-sphere>
+          </a-entity>
+
+         <!-- sao Thiên Vương -->
+          <a-entity
+          position="0 0.5 0"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 2650000; easing: linear"
+          >
+            <a-gltf-model
+              src="#model-uranus"
+              position="4.6 0 0"
+              scale="0.00045 0.00045 0.00045"
+              class="clickable"
+              rotation="97.8 0 0" 
+            >
+            </a-gltf-model>
+
+            <!-- Vùng nhấn ẩn để mở modal -->
+            <a-sphere
+              position="4.6 0 0"
+              radius="0.35"
+              class="clickable"
+              opacity="0.001"
+              id="uranusButton"
+            >
+            </a-sphere>
+          </a-entity>
+
         </a-entity>
+
         <!-- ZOOMED -->
         <a-entity
           class="zoomed_planet"
@@ -310,7 +567,7 @@
           ></a-gltf-model>
 
           <!-- Nút thông tin -->
-          <a-entity position="1 -0.3 0.5" class="clickable">
+          <a-entity position="1 -1 0.5" class="clickable">
             <a-plane width="0.4" height="0.2" color="#3498db"></a-plane>
             <a-text
               value="Info"
@@ -330,7 +587,7 @@
           </a-entity>
 
           <!-- Nút đóng -->
-          <a-entity position="1 -0.8 0.5" class="clickable">
+          <a-entity position="1 -1.5 0.5" class="clickable">
             <a-plane width="0.4" height="0.2" color="#e74c3c"></a-plane>
             <a-text
               value="Close"

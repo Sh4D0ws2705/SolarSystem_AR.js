@@ -1,53 +1,30 @@
-// Gắn component gesture vào hệ mặt trời
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   document.querySelector("#solar-system").setAttribute("gesture-handler", "");
-
-//   const earthBtn = document.querySelector("#earthButton");
-//   const marsBtn = document.querySelector("#marsButton");
-//   const venusBtn = document.querySelector("#venusButton");
-//   const mercuryBtn = document.querySelector("#mercuryButton");
-//   const sunBtn = document.querySelector("#sunButton");
-
-//   earthBtn.addEventListener("click", () => {
-//     document.getElementById("modal-earth").style.display = "block";
-//   });
-
-//   sunBtn.addEventListener("click", () => {
-//     document.getElementById("modal-sun").style.display = "block";
-//   });
-
-//   marsBtn.addEventListener("click", () => {
-//     document.getElementById("modal-mars").style.display = "block";
-//   });
-
-//   venusBtn.addEventListener("click", () => {
-//     document.getElementById("modal-venus").style.display = "block";
-//   });
-
-//   mercuryBtn.addEventListener("click", () => {
-//     document.getElementById("modal-mercury").style.display = "block";
-//   });
-// });
-
-// // Hàm đóng modal
-// function closeModal(id) {
-//   document.getElementById(id).style.display = "none";
-// }
-
 const planetData = {
   sun: { model: "#model-sun", scale: "0.07 0.07 0.07" },
   mercury: { model: "#model-mercury", scale: "0.6 0.6 0.6" },
   venus: { model: "#model-venus", scale: "0.001 0.001 0.001" },
   earth: { model: "#model-earth", scale: "0.0002 0.0002 0.0002" },
+  moon: { model: "#model-moon", scale: "0.2 0.2 0.2" },
   mars: { model: "#model-mars", scale: "0.7 0.7 0.7" },
+  jupiter: { model: "#model-jupiter", scale: "0.003 0.003 0.003" },
+  saturn: { model: "#model-saturn", scale: "0.04 0.04 0.04" },
+  uranus: { model: "#model-uranus", scale: "0.0007 0.0007 0.0007" },
 };
 
 let currentPlanetId = null; // Biến toàn cục lưu hành tinh đang zoom
 
 document.addEventListener("DOMContentLoaded", () => {
   // Gán sự kiện click cho các nút button hành tinh
-  ["sun", "mercury", "venus", "earth", "mars"].forEach((planet) => {
+  [
+    "sun",
+    "mercury",
+    "venus",
+    "earth",
+    "moon",
+    "mars",
+    "jupiter",
+    "saturn",
+    "uranus",
+  ].forEach((planet) => {
     const btn = document.querySelector(`#${planet}Button`);
     if (btn) {
       btn.addEventListener("click", () => {
